@@ -22,8 +22,6 @@ public class Lesson {
 
         int r = random.nextInt(3) + 1;
 
-        r = 4;
-
         switch (r){
             case 1:
                 znak = '+';
@@ -66,7 +64,12 @@ public class Lesson {
         }
 
         for (int i = 1; i < 5; i++){
-            otvetMap.put(i,  random.nextInt((int) Math.abs(otvet+1))+otvet/2);
+            int b = (int) (Math.abs((int)(otvet+1))+otvet/2);
+            b = Math.abs(b);
+
+            if (b == 0) b++;
+
+            otvetMap.put(i, (float) random.nextInt(b));
         }
 
         otvetMap.put(  random.nextInt(3)+1, otvet  );
