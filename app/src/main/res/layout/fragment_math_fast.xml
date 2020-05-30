@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.launch.Launch"
+    android:id="@+id/math_fast_frameLayout" >
+
+    <TextView
+        android:id="@+id/math_fast_text_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="2+2=?"
+        android:textColor="#000000"
+        android:textSize="64sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/math_fast_text_otvets"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:text="Количество ответов: 0"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/math_fast_text_question" />
+
+    <TextView
+        android:id="@+id/math_fast_text_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:text="Ваш уровень: 1"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/math_fast_text_otvets" />
+
+    <ProgressBar
+        android:id="@+id/math_fast_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@drawable/custom_progressbar"
+        app:layout_constraintEnd_toEndOf="@+id/math_fast_text_level"
+        app:layout_constraintStart_toStartOf="@+id/math_fast_text_level"
+        app:layout_constraintTop_toBottomOf="@+id/math_fast_text_level" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/math_fast_fragment_plane"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/math_fast_game_plane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/math_fast_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/math_fast_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/math_fast_progressBar">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
