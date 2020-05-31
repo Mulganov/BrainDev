@@ -2,6 +2,8 @@ package com.mulganov.app.brain_dev.ui.math.fast.fragments.game.utils;
 
 import android.icu.text.DecimalFormat;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ChoiceFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -14,11 +16,12 @@ public class Lesson {
     int b;
     public float otvet;
     char znak;
-
-    HashMap<Integer, Float> otvetMap = new HashMap<>();
+    public Otvets otvets;
 
     Lesson(){
         Random random = new Random();
+
+        otvets = new Otvets();
 
         int r = random.nextInt(3) + 1;
 
@@ -50,29 +53,43 @@ public class Lesson {
                 b = random.nextInt(level_mul_div) + 1;
                 otvet = (float) a / b;
 
-                DecimalFormat format = null;
-
-                System.out.println(otvet);
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                    format = new DecimalFormat("#.##");
-                    otvet = Float.parseFloat(format.format(otvet).replaceAll(",", "."));
-                }
-
-                System.out.println(otvet);
                 break;
         }
 
-        for (int i = 1; i < 5; i++){
-            int b = (int) (Math.abs((int)(otvet+1))+otvet/2);
-            b = Math.abs(b);
 
-            if (b == 0) b++;
+        otvets.a = (float) round (otvet + (otvet / 10f) + 1, 2);
+        otvets.b = (float) round (otvet - (otvet / 10f) - 1, 2);
+        otvets.c = (float) round (otvet - (otvet / 20f) - 1, 2);
+        otvets.d = (float) round (otvet + (otvet / 20f) + 1, 2);
 
-            otvetMap.put(i, (float) random.nextInt(b));
+        int rr = random.nextInt(3)+1;
+
+        switch (rr){
+            case 1: otvets.a = otvet;
+                break;
+            case 2: otvets.b = otvet;
+                break;
+            case 3: otvets.c = otvet;
+                break;
+            case 4: otvets.d = otvet;
+                break;
         }
 
-        otvetMap.put(  random.nextInt(3)+1, otvet  );
     }
 
+    private double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+    public class Otvets{
+        public float a;
+        public float b;
+        public float c;
+        public float d;
+
+    }
 }

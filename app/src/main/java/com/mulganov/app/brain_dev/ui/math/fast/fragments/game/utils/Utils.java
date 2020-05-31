@@ -47,13 +47,13 @@ public class Utils {
                 Button b_c = present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_c);
                 Button b_d = present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_d);
 
-                b_a.setText(lesson.otvetMap.get(1) + "");
+                b_a.setText(lesson.otvets.a + "");
 
-                b_b.setText(lesson.otvetMap.get(2) + "");
+                b_b.setText(lesson.otvets.b + "");
 
-                b_c.setText(lesson.otvetMap.get(3) + "");
+                b_c.setText(lesson.otvets.c + "");
 
-                b_d.setText(lesson.otvetMap.get(4) + "");
+                b_d.setText(lesson.otvets.d + "");
             }
         });
     }
