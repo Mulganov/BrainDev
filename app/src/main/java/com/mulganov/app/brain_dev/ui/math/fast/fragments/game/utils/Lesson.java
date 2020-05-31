@@ -1,29 +1,33 @@
 package com.mulganov.app.brain_dev.ui.math.fast.fragments.game.utils;
 
-import android.icu.text.DecimalFormat;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.ChoiceFormat;
-import java.text.NumberFormat;
-import java.util.HashMap;
 import java.util.Random;
 
 public class Lesson {
-    static int level_plus_minus = 10;
-    static int level_mul_div = 3;
+    static final int level_default_pm = 10;
+    static final int level_default_md = 3;
+
+    static final int next_level_pm = 5;
+    static final int next_level_md = 5;
+
+    static int level_plus_minus;
+    static int level_mul_div;
     int a;
     int b;
     public float otvet;
     char znak;
     public Otvets otvets;
 
-    Lesson(){
+    Lesson(int level){
+        reloadLevel(level);
+
         Random random = new Random();
 
         otvets = new Otvets();
 
-        int r = random.nextInt(3) + 1;
+        int r = random.nextInt(4) + 1;
+        System.out.println(r);
 
         switch (r){
             case 1:
@@ -52,15 +56,15 @@ public class Lesson {
                 a = random.nextInt(level_mul_div) + 1;
                 b = random.nextInt(level_mul_div) + 1;
                 otvet = (float) a / b;
-
+                otvet = (int)otvet;
                 break;
         }
 
 
-        otvets.a = (float) round (otvet + (otvet / 10f) + 1, 2);
-        otvets.b = (float) round (otvet - (otvet / 10f) - 1, 2);
-        otvets.c = (float) round (otvet - (otvet / 20f) - 1, 2);
-        otvets.d = (float) round (otvet + (otvet / 20f) + 1, 2);
+        otvets.a = (int) round (otvet + (otvet / 10f) + 1, 2);
+        otvets.b = (int) round (otvet - (otvet / 10f) - 1, 2);
+        otvets.c = (int) round (otvet - (otvet / 20f) - 1, 2);
+        otvets.d = (int) round (otvet + (otvet / 20f) + 1, 2);
 
         int rr = random.nextInt(3)+1;
 
@@ -75,6 +79,14 @@ public class Lesson {
                 break;
         }
 
+    }
+
+    private void reloadLevel(int level) {
+        int pm = level / next_level_pm;
+        int md = level / next_level_md;
+
+        Lesson.level_plus_minus = level_default_pm + pm;
+        Lesson.level_mul_div = level_default_md + md;
     }
 
     private double round(double value, int places) {

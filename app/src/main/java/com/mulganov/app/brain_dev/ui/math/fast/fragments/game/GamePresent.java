@@ -9,11 +9,13 @@ import com.mulganov.app.brain_dev.ui.math.fast.fragments.game.utils.Utils;
 
 public class GamePresent {
 
-    public final static int _timer = 60;            // Сколько секунд будет идти игра
+    public static int _timer = 60;            // Сколько секунд будет идти игра
 
     public Game game;
     Timer timer;
     Utils utils;
+
+    public boolean breakTimer = false;
 
     public GamePresent(Game game) {
         this.game = game;
@@ -73,6 +75,9 @@ class Timer{
                             progressBar.setProgress(finalI);
                         }
                     });
+
+                    if (present.breakTimer)
+                        return;
 
                     try {
                         Thread.sleep(present._timer);

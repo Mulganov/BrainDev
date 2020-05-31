@@ -32,13 +32,7 @@ public class Utils {
                 text_level.setText("Ваш уровень: " + level);
                 text_otvet.setText("Количество ответов: " + otvets);
 
-                int pm = level / 5;
-                int md = level / 10;
-
-                Lesson.level_plus_minus = 10 + pm;
-                Lesson.level_mul_div = 3 + md;
-
-                lesson = new Lesson();
+                lesson = new Lesson(level);
 
                 text_lesson.setText(lesson.a + "" + lesson.znak + "" +  lesson.b + "=?");
 
@@ -95,15 +89,18 @@ public class Utils {
     }
 
     private void allButtonStandartBack(){
-        present.game.getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_a).setBackgroundResource(R.drawable.math_fast_game_plane_button);
-                present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_b).setBackgroundResource(R.drawable.math_fast_game_plane_button);
-                present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_c).setBackgroundResource(R.drawable.math_fast_game_plane_button);
-                present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_d).setBackgroundResource(R.drawable.math_fast_game_plane_button);
-            }
-        });
+        try {
+            present.game.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_a).setBackgroundResource(R.drawable.math_fast_game_plane_button);
+                    present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_b).setBackgroundResource(R.drawable.math_fast_game_plane_button);
+                    present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_c).setBackgroundResource(R.drawable.math_fast_game_plane_button);
+                    present.game.getActivity().findViewById(R.id.math_fast_game_plane_button_d).setBackgroundResource(R.drawable.math_fast_game_plane_button);
+                }
+            });
+        }catch (Exception ex){
+        }
     }
 
     private void allButtonRed(){

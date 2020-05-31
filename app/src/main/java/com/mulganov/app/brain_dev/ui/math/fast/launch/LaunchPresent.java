@@ -1,4 +1,4 @@
-package com.mulganov.app.brain_dev.ui.launch;
+package com.mulganov.app.brain_dev.ui.math.fast.launch;
 
 import android.view.View;
 
@@ -12,7 +12,7 @@ public class LaunchPresent {
     public LaunchPresent(Launch launch) {
         this.launch = launch;
 
-        launch.getView().findViewById(R.id.launch_button_play).setOnClickListener(this::play);
+        launch.getView().findViewById(R.id.math_fast_launch_button_play).setOnClickListener(this::play);
     }
 
     public void play(View view) {
