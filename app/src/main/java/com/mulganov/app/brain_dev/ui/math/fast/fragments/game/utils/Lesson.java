@@ -56,7 +56,6 @@ public class Lesson {
                 a = random.nextInt(level_mul_div) + 1;
                 b = random.nextInt(level_mul_div) + 1;
                 otvet = (float) a / b;
-                otvet = (int)otvet;
                 break;
         }
 
