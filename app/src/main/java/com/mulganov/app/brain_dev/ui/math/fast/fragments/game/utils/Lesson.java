@@ -2,6 +2,7 @@ package com.mulganov.app.brain_dev.ui.math.fast.fragments.game.utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Lesson {
@@ -27,7 +28,8 @@ public class Lesson {
         otvets = new Otvets();
 
         int r = random.nextInt(4) + 1;
-        System.out.println(r);
+
+        r = 4;
 
         switch (r){
             case 1:
@@ -54,7 +56,7 @@ public class Lesson {
             case 4:
                 znak = '/';
                 a = random.nextInt(level_mul_div) + 1;
-                b = random.nextInt(level_mul_div) + 1;
+                b = getB(a);
                 otvet = (float) a / b;
                 break;
         }
@@ -65,7 +67,7 @@ public class Lesson {
         otvets.c = (int) round (otvet - (otvet / 20f) - 1, 2);
         otvets.d = (int) round (otvet + (otvet / 20f) + 1, 2);
 
-        int rr = random.nextInt(3)+1;
+        int rr = random.nextInt(4)+1;
 
         switch (rr){
             case 1: otvets.a = otvet;
@@ -78,6 +80,21 @@ public class Lesson {
                 break;
         }
 
+    }
+
+    private int getB(int a){
+        int b = 1;
+
+        ArrayList<Integer> array = new ArrayList<>();
+
+        for (int i = 1; i < a+1; i++){
+            if ( a % i == 0 )
+                array.add(i);
+        }
+
+        if (array.size() != 0)
+            b = array.get(new Random().nextInt(array.size()));
+        return b;
     }
 
     private void reloadLevel(int level) {
