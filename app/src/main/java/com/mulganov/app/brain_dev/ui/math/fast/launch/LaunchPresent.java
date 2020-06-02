@@ -16,7 +16,7 @@ public class LaunchPresent {
     }
 
     public void play(View view) {
-        launch.getActivity().getSupportFragmentManager().beginTransaction()
+        this.launch.getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_content, Fast.newInstance())
                 .commitNow();
     }

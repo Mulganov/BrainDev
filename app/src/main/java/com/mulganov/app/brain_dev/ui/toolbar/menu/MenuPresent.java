@@ -26,13 +26,13 @@ public class MenuPresent {
     private void openMainMenu(){
         LayoutInflater inflater = (LayoutInflater)
                 present.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_toolbar_menu, null);
+        View popupView = inflater.inflate(R.layout.fragment_menu, null);
 
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = false;
 
-        popupView.findViewById(R.id.toolbar_menu_button_math_fast).setOnClickListener(this::openMath_Fast);
+        popupView.findViewById(R.id.menu_button_math_fast).setOnClickListener(this::openMath_Fast);
 
         popupWindow = new PopupWindow(popupView, width, height, focusable);
 

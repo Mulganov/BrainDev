@@ -20,7 +20,7 @@
         tools:text="Доступные игры" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar_menu_button_math_fast"
+        android:id="@+id/menu_button_math_fast"
         android:layout_width="409dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"

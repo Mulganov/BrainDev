@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:gravity="center"
-        android:text="lore"
+        android:text="@string/math_fast_launch_lore"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,12 +20,14 @@
 
     <ImageView
         android:id="@+id/math_fast_launch_button_play"
-        android:layout_width="300dp"
-        android:layout_height="75dp"
-        android:src="@drawable/button_play"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/math_fast_launch_text_lore" />
+        app:layout_constraintTop_toBottomOf="@+id/math_fast_launch_text_lore"
+        app:srcCompat="@mipmap/ic_play"
+        tools:srcCompat="@mipmap/ic_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

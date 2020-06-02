@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BrainDev</string>
+
+    <string name="math_fast_launch_lore">В течение одной минуты нужно быстро решать математические примеры. Чем выше уровень тем больше числа в примерах</string>
+</resources>

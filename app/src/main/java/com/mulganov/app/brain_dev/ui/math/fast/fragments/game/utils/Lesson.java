@@ -29,7 +29,7 @@ public class Lesson {
 
         int r = random.nextInt(4) + 1;
 
-        r = 4;
+//        r = 4;
 
         switch (r){
             case 1:

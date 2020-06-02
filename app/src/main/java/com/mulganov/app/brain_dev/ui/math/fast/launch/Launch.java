@@ -43,8 +43,4 @@ public class Launch extends Fragment {
         present = new LaunchPresent(this);
     }
 
-    private void play(View view) {
-        System.out.println("Click");
-    }
-
 }

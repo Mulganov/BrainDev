@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mulganov.app.brain_dev.ui.math.fast.launch.Launch;
+import com.mulganov.app.brain_dev.ui.menu.Menu;
 import com.mulganov.app.brain_dev.ui.toolbar.ToolbarPresent;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         ToolbarPresent.init(findViewById(R.id.include_toolbar), this);
 
-        openMath_Fast();
+        openMenu();
+//        openMath_Fast();
 
-        content.setOnClickListener(ToolbarPresent.getToolbar()::onClickWindow);
+        findViewById(R.id.back).setOnClickListener(ToolbarPresent.getToolbar()::onClickWindow);
     }
 
     public void openMath_Fast(){
@@ -31,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_content,  launch)
+                .commitNow();
+
+    }
+
+    public void openMenu(){
+        Menu menu = Menu.newInstance();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_content,  menu)
                 .commitNow();
 
     }
